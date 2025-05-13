@@ -2,70 +2,118 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Name | Game Developer</title>
+  <title>Muhammad Bagoes Wicaksono | Pyoyoww</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-dark: #111;
+      --bg-light: #1f1f1f;
+      --accent: #ff8800;
+      --accent-light: #ffaa33;
+      --text: #fff;
+      --text-muted: #aaa;
+      --highlight: #ffcc00;
+    }
+
     body {
-      font-family: sans-serif;
+      font-family: 'Outfit', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #111;
-      color: #fff;
+      background-color: var(--bg-dark);
+      color: var(--text);
     }
+
     header {
       padding: 40px 20px;
       text-align: center;
-      background: #222;
+      background: var(--bg-light);
     }
+
     header h1 {
       margin: 0;
       font-size: 2.5em;
     }
+
     nav {
       text-align: center;
       padding: 10px;
-      background: #333;
+      background: #222;
     }
+
     nav a {
       margin: 0 15px;
-      color: #aaa;
+      color: var(--text-muted);
       text-decoration: none;
+      transition: color 0.3s;
     }
+
     nav a:hover {
-      color: #fff;
+      color: var(--text);
     }
+
     section {
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
     }
+
+    section:nth-child(even) {
+      background-color: var(--bg-light);
+    }
+
     .project {
       background: #1a1a1a;
       padding: 20px;
       margin-bottom: 20px;
       border-radius: 8px;
+      transition: transform 0.3s ease;
     }
+
+    .project:hover {
+      transform: scale(1.02);
+      background-color: #222;
+    }
+
     .project h3 {
       margin-top: 0;
     }
+
     footer {
       text-align: center;
       padding: 30px;
-      background: #222;
+      background: var(--bg-light);
       font-size: 0.9em;
     }
+
     a.button {
       display: inline-block;
       margin-top: 10px;
       padding: 10px 20px;
-      background: #ff8800;
+      background: var(--accent);
       color: #000;
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
+      transition: background 0.3s;
     }
+
     a.button:hover {
-      background: #ffaa33;
+      background: var(--accent-light);
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: var(--highlight);
+    }
+
+    a {
+      color: var(--accent-light);
     }
   </style>
 </head>
@@ -73,61 +121,61 @@
 
 <header>
   <h1>Muhammad Bagoes Wicaksono | Pyoyoww</h1>
-  <p>Indie Game Developer | Portfolio</p>
+  <p>🎮 Indie Game Developer | Portfolio</p>
 </header>
 
 <nav>
   <a href="#about">About</a>
   <a href="#projects">Projects</a>
+  <a href="#design-docs">Design Docs</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
-  <h2>About Me</h2>
+  <h2>👤 About Me</h2>
   <p>
     I'm a passionate game developer with a love for creating fun, fast-paced, and memorable experiences. 
-    I work with Godot and Unity, I focus on gameplay design, programming, and storytelling.
+    I work with Godot and Unity, and focus on gameplay design, programming, and storytelling.
   </p>
 </section>
 
 <section id="projects">
-  <h2>Projects</h2>
+  <h2>🎮 Projects</h2>
 
   <div class="project">
     <h3>Carrot Crusader</h3>
-    <img src="images/carrot_crusader_logo.png" alt="Carrot Crusader Logo" style="max-width: 100%; border-radius: 8px; margin-bottom: 15px;">
+    <img src="images/carrot_crusader_logo.png" alt="Carrot Crusader Logo">
     <p>
       A fast-paced arcade shooter where you play as a chicken with a bow, defending your land from evil farmers! 
       Built in Godot and inspired by classic endless action loops.
     </p>
     <a class="button" href="https://pyoyoww.itch.io/carrot-crusader" target="_blank">Play on Itch.io</a>
     <a class="button" href="https://github.com/mbagoesw/carrotcrusader" target="_blank">View on GitHub</a>
-</div>
+  </div>
 
   <div class="project">
-    <h3>Hopeful The Black Vein</h3>
-    <img src="images/hopeful_logo.png" alt="Hopeful Logo" style="max-width: 100%; border-radius: 8px; margin-bottom: 15px;">
+    <h3>Hopeful: The Black Vein</h3>
+    <img src="images/hopeful_logo.png" alt="Hopeful Logo">
     <p>
-     Hopeful: The Black Vein is a 2D puzzle-platformer set in a steampunk-inspired world. Players take on the role of a devoted older brother on a desperate mission to find a cure for his gravely ill sister. 
-     To save her, he must infiltrate secret laboratories, solve challenging puzzles, and overcome deadly obstacles—all while uncovering the dark secrets behind the mysterious Black Vein disease.
+      Hopeful: The Black Vein is a 2D puzzle-platformer set in a steampunk-inspired world. Players take on the role of a devoted older brother on a desperate mission to find a cure for his gravely ill sister. 
+      To save her, he must infiltrate secret laboratories, solve challenging puzzles, and overcome deadly obstacles—all while uncovering the dark secrets behind the mysterious Black Vein disease.
     </p>
     <a class="button" href="https://ms013.itch.io/hopefull" target="_blank">Play on Itch.io</a>
-</div>
+  </div>
 
   <div class="project">
     <h3>CapingVenture</h3>
-    <img src="images/caping_venture_logo.png" alt="CapingVenture Logo" style="max-width: 100%; border-radius: 8px; margin-bottom: 15px;">
+    <img src="images/caping_venture_logo.png" alt="CapingVenture Logo">
     <p>
       CapingVenture is a 3D adventure-puzzle game that follows the journey of a young boy named Taka, who receives a final request from his grandfather: to find the legendary Golden Caping. 
       This mystical conical hat is said to be hidden on a mysterious island and is rumored to grant supernatural powers to anyone who wears it.
     </p>
     <a class="button" href="https://fachrulreza4.itch.io/capingventure" target="_blank">Play on Itch.io</a>
-</div>
-
+  </div>
 </section>
 
 <section id="design-docs">
-  <h2>Design Documents</h2>
+  <h2>📄 Design Documents</h2>
 
   <div class="project">
     <h3>Carrot Crusader GDD</h3>
@@ -137,36 +185,34 @@
     <a class="button" href="docs/carrot_crusader_gdd.pdf" target="_blank">View GDD (PDF)</a>
   </div>
 
-   <div class="project">
-    <h3>Hopeful The Black Vein GDD</h3>
+  <div class="project">
+    <h3>Hopeful: The Black Vein GDD</h3>
     <p>
       A design document for a 2D puzzle platformer set in a steampunk world. It outlines the core gameplay loop, obstacles, narrative structure, level design, and character motivations.
     </p>
     <a class="button" href="docs/hopeful_gdd.pdf" target="_blank">View GDD (PDF)</a>
   </div>
 
-   <div class="project">
+  <div class="project">
     <h3>CapingVenture GDD</h3>
     <p>
       A 3D adventure puzzle game design document that follows Taka's journey to retrieve the legendary Golden Caping. Includes exploration mechanics, puzzle flow, story premise, and visual direction.
     </p>
     <a class="button" href="docs/caping_venture_gdd.pdf" target="_blank">View GDD (PDF)</a>
   </div>
-
-
 </section>
-  
+
 <section id="contact">
-  <h2>Contact</h2>
+  <h2>📬 Contact</h2>
   <p>
     Feel free to reach out if you're interested in collaborating, hiring, or just talking about games.
   </p>
-  <p>Email: <a href="mailto:usernamewicak@gmail.com" style="color:#ffa;">youremail@example.com</a></p>
-  <p>GitHub: <a href="https://github.com/mbagoesw" style="color:#ffa;">@your-username</a></p>
+  <p>Email: <a href="mailto:usernamewicak@gmail.com">usernamewicak@gmail.com</a></p>
+  <p>GitHub: <a href="https://github.com/mbagoesw" target="_blank">mbagoesw</a></p>
 </section>
 
 <footer>
-  &copy; 2025 Your Name. All rights reserved.
+  &copy; 2025 Muhammad Bagoes Wicaksono. All rights reserved.
 </footer>
 
 </body>
