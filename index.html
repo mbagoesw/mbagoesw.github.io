@@ -1,319 +1,723 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Muhammad Bagoes Wicaksono | Pyoyoww</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0a192f;
-      --accent: #00bcd4;
-      --accent-gradient: linear-gradient(90deg, #00bcd4, #2196f3);
-      --light-bg: #f0f4f8;
-      --text: #222;
-      --card-bg: #ffffff;
-      --border: #e0e0e0;
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-2: #eef4ff;
+      --text: #101828;
+      --muted: #667085;
+      --border: rgba(16, 24, 40, 0.08);
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --accent-2: #06b6d4;
+      --accent-gradient: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max-width: 1180px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--light-bg);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 26%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.10), transparent 22%),
+        var(--bg);
       color: var(--text);
+      line-height: 1.65;
     }
 
-    header {
-      padding: 60px 20px 40px;
-      text-align: center;
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 8px;
       background: var(--primary);
-      color: white;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 999px;
+      z-index: 999;
     }
 
-    header h1 {
+    .skip-link:focus { left: 16px; }
+
+    header.hero {
+      padding: 84px 0 42px;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(17, 24, 39, 0.94));
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 36px;
+      padding: 44px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -120px -120px auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.35), transparent 65%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 14px;
+      letter-spacing: 0.02em;
+    }
+
+    .eyebrow::before {
+      display: none;
+    }
+
+    h1 {
       margin: 0;
-      font-size: 3em;
-      font-weight: 700;
+      font-size: clamp(2.2rem, 4vw, 4.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
     }
 
-    header p {
-      font-weight: 300;
-      font-size: 1.2em;
-      margin-top: 10px;
+    .hero-subtitle {
+      margin: 18px 0 0;
+      max-width: 760px;
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      border: 1px solid transparent;
+      will-change: transform;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #fff;
+      box-shadow: 0 14px 24px rgba(37, 99, 235, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      border-color: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
     }
 
     nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 15px;
-      background: #ffffff;
-      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(245, 247, 251, 0.82);
+      border-bottom: 1px solid rgba(16, 24, 40, 0.06);
     }
 
-    nav a {
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
       color: var(--primary);
-      font-weight: 500;
-      text-decoration: none;
-      transition: 0.3s;
     }
 
-    nav a:hover {
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      background: rgba(37, 99, 235, 0.08);
       color: var(--accent);
     }
 
     section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
+      padding: 64px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
     }
 
     h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      position: relative;
+      margin: 0;
+      font-size: clamp(1.5rem, 2.3vw, 2.2rem);
+      letter-spacing: -0.03em;
     }
 
-    h2::after {
-      content: '';
-      width: 60px;
-      height: 4px;
-      background: var(--accent-gradient);
-      display: block;
-      margin-top: 8px;
-      border-radius: 4px;
+    .section-lead {
+      margin: 0;
+      color: var(--muted);
+      max-width: 720px;
     }
 
-    .project {
-      background: var(--card-bg);
-      padding: 25px;
-      margin-bottom: 30px;
-      border-radius: 15px;
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+    }
+
+    .about-card,
+    .project-card,
+    .doc-card,
+    .contact-card {
+      background: var(--surface);
       border: 1px solid var(--border);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease-in-out;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
     }
 
-    .project:hover {
-      transform: translateY(-5px);
+    .about-card {
+      grid-column: 1 / -1;
+      padding: 28px;
     }
 
-    .project h3 {
-      margin-top: 0;
-      font-size: 1.4em;
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      background: linear-gradient(180deg, #f8fbff, #f3f7ff);
+      border: 1px solid rgba(37, 99, 235, 0.10);
+      padding: 18px;
+      border-radius: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.4rem;
       color: var(--primary);
+      margin-bottom: 6px;
     }
 
-    .project .tech {
-      font-size: 0.9em;
-      color: #666;
-      font-weight: 500;
+    .stat span { color: var(--muted); font-size: 0.95rem; }
+
+    .project-card {
+      grid-column: span 6;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
-    .project p {
-      margin: 15px 0;
-      line-height: 1.6;
+    .project-media {
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #dbeafe, #cffafe);
+      overflow: hidden;
+    }
+
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      flex-wrap: wrap;
+    }
+
+    .project-title {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .tech {
+      color: var(--muted);
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+
+    .project-desc,
+    .doc-desc {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      font-size: 0.84rem;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #f8fafc;
+      color: #475467;
+      border: 1px solid var(--border);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+
+    .btn-dark {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: var(--primary);
+      border-color: rgba(16, 24, 40, 0.12);
+    }
+
+    .doc-card {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .doc-grid .doc-card {
+      grid-column: span 4;
+    }
+
+    .doc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .doc-badge::before {
+      display: none;
+    }
+
+    .contact-card {
+      grid-column: 1 / -1;
+      padding: 28px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+    }
+
+    .contact-item span {
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
     footer {
+      margin-top: 20px;
+      padding: 28px 0 42px;
+      color: var(--muted);
       text-align: center;
-      padding: 40px 20px;
-      background: var(--primary);
-      color: white;
-      font-size: 0.9em;
-      margin-top: 60px;
+      font-size: 0.92rem;
     }
 
-    a.button {
-      display: inline-block;
-      margin: 10px 10px 0 0;
-      padding: 10px 20px;
-      background: var(--accent-gradient);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: transform 0.2s ease;
-    }
-
-    a.button:hover {
-      transform: scale(1.05);
-    }
-
-    img {
-      max-width: 100%;
-      border-radius: 12px;
-      margin-bottom: 15px;
-    }
-
-    a {
-      color: var(--accent);
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2em;
+    @media (max-width: 920px) {
+      .project-card,
+      .doc-grid .doc-card {
+        grid-column: 1 / -1;
       }
 
-      nav {
-        flex-wrap: wrap;
-        gap: 10px;
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-card,
+      .about-card,
+      .contact-card,
+      .doc-card,
+      .project-body {
+        padding: 20px;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .nav-links {
+        gap: 6px;
+      }
+
+      .nav-links a {
+        padding: 9px 12px;
+      }
+
+      .contact-item {
+        flex-direction: column;
+        align-items: start;
       }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-<header>
-  <h1>Muhammad Bagoes Wicaksono | Pyoyoww</h1>
-  <p>Indie Game Developer • Portfolio</p>
-</header>
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">Pyoyoww</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#design-docs">Design Docs</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="eyebrow">Designing gameplay-focused indie experiences with atmosphere and memorable mechanics.</div>
+        <h1>Muhammad Bagoes Wicaksono</h1>
+        <p class="hero-subtitle">
+          I create stylized indie games focused on exploration, puzzle flow, arcade gameplay,
+          and strong visual identity. My projects combine gameplay systems, level design,
+          atmosphere, and documentation into compact but memorable experiences.
+        </p>
+      </div>
+    </div>
+  </header>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    I'm a passionate indie game developer who enjoys designing fast-paced and memorable gameplay experiences.
-    I work with <strong>Godot</strong> and <strong>Unity</strong>, focusing on <strong>game design</strong>, <strong>level design</strong>, and <strong>storytelling</strong>.
-  </p>
-</section>
+  <main id="main-content">
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>About Me</h2>
+            <p class="section-lead">
+              I enjoy designing games that feel memorable through gameplay, atmosphere, and exploration.
+            </p>
+          </div>
+        </div>
 
-<section id="projects">
-  <h2>Projects</h2>
+        <div class="about-card">
+          <p>
+            I am an indie game developer working with <strong>Godot</strong> and <strong>Unity</strong>,
+            with a strong focus on gameplay feel, level structure, puzzle design, and visual presentation.
+            I enjoy building projects that feel compact but polished, with clear progression and strong identity.
+          </p>
 
-  <div class="project">
-    <h3>Carrot Crusader <span class="tech">• 2D • Godot • GDScript • 2025</span></h3>
-    <img src="images/carrot_crusader_logo.png" alt="Carrot Crusader Logo">
-    <p>
-      A fast-paced arcade shooter where you play as a chicken with a bow, defending your land from evil farmers!
-      Built in Godot, inspired by endless wave survival games with a quirky and cute twist.
-    </p>
-    <a class="button" href="https://pyoyoww.itch.io/carrot-crusader" target="_blank">Play on Itch.io</a>
-    <a class="button" href="https://github.com/mbagoesw/carrotcrusader" target="_blank">View on GitHub</a>
-  </div>
+          <div class="pill-row" style="margin-top: 24px;">
+            <span class="pill">Gameplay Design</span>
+            <span class="pill">Level Design</span>
+            <span class="pill">Puzzle Systems</span>
+            <span class="pill">Arcade Gameplay</span>
+            <span class="pill">UI / UX</span>
+            <span class="pill">Documentation</span>
+          </div>
+        </div>
 
-  <div class="project">
-    <h3>Hopeful: The Black Vein <span class="tech">• 2D • Unity • C# • 2023</span></h3>
-    <img src="images/hopeful_logo.png" alt="Hopeful Logo">
-    <p>
-      A 2D puzzle-platformer set in a steampunk-inspired world. You play as a devoted brother trying to cure his ill sister by infiltrating secret labs, solving puzzles, and uncovering the mystery of the Black Vein disease.
-    </p>
-    <a class="button" href="https://ms013.itch.io/hopefull" target="_blank">Play on Itch.io</a>
-  </div>
+        <div class="about-card" style="margin-top: 24px;">
+          <h3 style="margin-top: 0;">Development Journey</h3>
+          <div style="display: grid; gap: 16px; margin-top: 20px;">
+            <div>
+              <strong>2022 — CapingVenture</strong><br>
+              <span style="color: var(--muted);">3D adventure puzzle game focused on exploration and mystery.</span>
+            </div>
+            <div>
+              <strong>2023 — Hopeful: The Black Vein</strong><br>
+              <span style="color: var(--muted);">Narrative puzzle-platformer with a steampunk-inspired setting.</span>
+            </div>
+            <div>
+              <strong>2025 — Carrot Crusader</strong><br>
+              <span style="color: var(--muted);">Arcade wave-survival shooter with chaotic gameplay and quirky charm.</span>
+            </div>
+            <div>
+              <strong>Present — Dapoer Setan</strong><br>
+              <span style="color: var(--muted);">Cooking arcade project inspired by Overcooked and Indonesian folklore.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div class="project">
-    <h3>CapingVenture <span class="tech">• 3D • Unity • C# • 2022</span></h3>
-    <img src="images/caping_venture_logo.png" alt="CapingVenture Logo">
-    <p>
-      A 3D adventure puzzle game that follows Taka on his quest to fulfill his grandfather's final wish: find the legendary Golden Caping. Explore a mysterious island, solve puzzles, and unlock ancient secrets.
-    </p>
-    <a class="button" href="https://fachrulreza4.itch.io/capingventure" target="_blank">Play on Itch.io</a>
-  </div>
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Projects</h2>
+            <p class="section-lead">
+              Each game has its own page for a cleaner presentation and deeper breakdown.
+            </p>
+          </div>
+        </div>
 
-</section>
+        <div class="card-grid">
+          <article class="project-card">
+            <div class="project-media">
+              <img src="images/carrot_crusader_logo.png" alt="Carrot Crusader logo">
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <div>
+                  <h3 class="project-title">Carrot Crusader</h3>
+                  <div class="tech">2D • Godot • GDScript • 2025</div>
+                </div>
+              </div>
+              <p class="project-desc">
+                A fast-paced arcade shooter where you play as a chicken with a bow,
+                defending your land from evil farmers. Built around quick movement,
+                wave survival, and a quirky visual style.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Arcade shooter</span>
+                <span class="pill">Wave survival</span>
+                <span class="pill">Cute chaotic theme</span>
+              </div>
+              <div class="button-row">
+                <a class="btn btn-dark" href="carrot-crusader.html">View Project Page</a>
+                <a class="btn btn-outline" href="docs/carrot_crusader_gdd.pdf" target="_blank" rel="noopener noreferrer">View GDD</a>
+                <a class="btn btn-outline" href="https://pyoyoww.itch.io/carrot-crusader" target="_blank" rel="noopener noreferrer">Play on Itch.io</a>
+                <a class="btn btn-outline" href="https://github.com/mbagoesw/carrotcrusader" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
 
-<section id="design-docs">
-  <h2>Design Documents</h2>
+          <article class="project-card">
+            <div class="project-media">
+              <img src="images/hopeful_logo.png" alt="Hopeful: The Black Vein logo">
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <div>
+                  <h3 class="project-title">Hopeful: The Black Vein</h3>
+                  <div class="tech">2D • Unity • C# • 2023</div>
+                </div>
+              </div>
+              <p class="project-desc">
+                A 2D puzzle-platformer set in a steampunk-inspired world. You play as a devoted brother
+                trying to cure his ill sister by infiltrating secret labs, solving puzzles, and uncovering the mystery.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Puzzle-platformer</span>
+                <span class="pill">Steampunk world</span>
+                <span class="pill">Narrative-driven</span>
+              </div>
+              <div class="button-row">
+                <a class="btn btn-dark" href="hopeful-black-vein.html">View Project Page</a>
+                <a class="btn btn-outline" href="docs/hopeful_gdd.pdf" target="_blank" rel="noopener noreferrer">View GDD</a>
+                <a class="btn btn-outline" href="https://ms013.itch.io/hopefull" target="_blank" rel="noopener noreferrer">Play on Itch.io</a>
+              </div>
+            </div>
+          </article>
 
-  <div class="project">
-    <h3>Carrot Crusader GDD</h3>
-    <p>
-      A detailed design document covering the core loop, enemy system, scoring mechanics, visual direction, and development notes of Carrot Crusader.
-    </p>
-    <a class="button" href="docs/carrot_crusader_gdd.pdf" target="_blank">View GDD (PDF)</a>
-  </div>
+          <article class="project-card">
+            <div class="project-media">
+              <img src="images/caping_venture_logo.png" alt="CapingVenture logo">
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <div>
+                  <h3 class="project-title">CapingVenture</h3>
+                  <div class="tech">3D • Unity • C# • 2022</div>
+                </div>
+              </div>
+              <p class="project-desc">
+                A 3D adventure puzzle game that follows Taka on a quest to fulfill his grandfather's final wish.
+                Explore an island, solve puzzles, and uncover ancient secrets.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Adventure puzzle</span>
+                <span class="pill">3D exploration</span>
+                <span class="pill">Mystery journey</span>
+              </div>
+              <div class="button-row">
+                <a class="btn btn-dark" href="capingventure.html">View Project Page</a>
+                <a class="btn btn-outline" href="docs/caping_venture_gdd.pdf" target="_blank" rel="noopener noreferrer">View GDD</a>
+                <a class="btn btn-outline" href="https://fachrulreza4.itch.io/capingventure" target="_blank" rel="noopener noreferrer">Play on Itch.io</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <div class="project">
-    <h3>Hopeful: The Black Vein GDD</h3>
-    <p>
-      A comprehensive GDD for a 2D puzzle-platformer set in a dark steampunk world. Includes gameplay loop, puzzle types, narrative summary, and level structure.
-    </p>
-    <a class="button" href="docs/hopeful_gdd.pdf" target="_blank">View GDD (PDF)</a>
-  </div>
+    
 
-  <div class="project">
-    <h3>CapingVenture GDD</h3>
-    <p>
-      A design document for a 3D adventure puzzle game. It outlines the world structure, story premise, puzzle design, and exploration mechanics.
-    </p>
-    <a class="button" href="docs/caping_venture_gdd.pdf" target="_blank">View GDD (PDF)</a>
-  </div>
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Contact</h2>
+            <p class="section-lead">
+              For collaboration, opportunities, or game design discussion.
+            </p>
+          </div>
+        </div>
 
-</section>
+        <div class="contact-card">
+          <p>Feel free to reach out through any of the links below.</p>
+          <div class="contact-list">
+            <div class="contact-item">
+              <div>
+                <strong>Email</strong><br>
+                <span>usernamewicak@gmail.com</span>
+              </div>
+              <a class="btn btn-outline" href="mailto:usernamewicak@gmail.com">Send Email</a>
+            </div>
+            <div class="contact-item">
+              <div>
+                <strong>GitHub</strong><br>
+                <span>mbagoesw</span>
+              </div>
+              <a class="btn btn-outline" href="https://github.com/mbagoesw" target="_blank" rel="noopener noreferrer">Open GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Feel free to reach out for collaboration, job opportunities, or game design chats.</p>
-  <p>Email: <a href="mailto:usernamewicak@gmail.com">usernamewicak@gmail.com</a></p>
-  <p>GitHub: <a href="https://github.com/mbagoesw" target="_blank">mbagoesw</a></p>
-</section>
+  <footer>
+    &copy; 2025 Muhammad Bagoes Wicaksono. All rights reserved.
+  </footer>
 
-<footer>
-  &copy; 2025 Muhammad Bagoes Wicaksono. All rights reserved.
-</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
 
-<!-- GSAP & ScrollTrigger -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script>
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.from("header h1", {
-    duration: 1,
-    y: -50,
-    opacity: 0,
-    ease: "power2.out"
-  });
-
-  gsap.from("nav a", {
-    duration: 0.8,
-    opacity: 0,
-    y: -20,
-    stagger: 0.1,
-    delay: 0.5
-  });
-
-  gsap.utils.toArray("section").forEach(section => {
-    gsap.from(section.querySelector("h2"), {
-      scrollTrigger: {
-        trigger: section,
-        start: "top 80%",
-      },
-      y: 30,
+    gsap.from(".hero-card", {
+      duration: 0.9,
+      y: 28,
       opacity: 0,
-      duration: 0.7,
       ease: "power2.out"
     });
-  });
 
-  gsap.utils.toArray(".project").forEach((card, i) => {
-    gsap.from(card, {
-      scrollTrigger: {
-        trigger: card,
-        start: "top 85%",
-      },
-      y: 40,
+    gsap.from(".nav-links a", {
+      duration: 0.6,
       opacity: 0,
-      duration: 0.5,
-      ease: "power2.out",
-      delay: i * 0.1
+      y: -10,
+      stagger: 0.08,
+      delay: 0.2
     });
-  });
-</script>
 
+    gsap.utils.toArray("section").forEach(section => {
+      const title = section.querySelector("h2");
+      if (!title) return;
+      gsap.from(title, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+        },
+        y: 24,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out"
+      });
+    });
+
+    gsap.utils.toArray(".project-card, .doc-card, .contact-card, .about-card").forEach((card, index) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 86%",
+        },
+        y: 28,
+        opacity: 0,
+        duration: 0.55,
+        ease: "power2.out",
+        delay: index * 0.05
+      });
+    });
+  </script>
 </body>
 </html>
