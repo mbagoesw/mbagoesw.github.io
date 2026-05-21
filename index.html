@@ -66,6 +66,10 @@
     }
 
     .hero-card {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 36px;
+      align-items: center;
       background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(17, 24, 39, 0.94));
       color: #fff;
       border: 1px solid rgba(255,255,255,0.08);
@@ -109,6 +113,7 @@
     }
 
     .hero-subtitle {
+      max-width: 640px;
       margin: 18px 0 0;
       max-width: 760px;
       font-size: 1.08rem;
@@ -419,6 +424,17 @@
       }
     }
 
+    @media (max-width: 920px) {
+      .hero-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image-wrap {
+        order: -1;
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 640px) {
       .hero-card,
       .about-card,
@@ -465,6 +481,7 @@
   <header class="hero">
     <div class="container">
       <div class="hero-card">
+        <div class="hero-content">
         <div class="eyebrow">Designing gameplay-focused indie experiences with atmosphere and memorable mechanics.</div>
         <h1>Muhammad Bagoes Wicaksono</h1>
         <p class="hero-subtitle">
@@ -472,6 +489,13 @@
           and strong visual identity. My projects combine gameplay systems, level design,
           atmosphere, and documentation into compact but memorable experiences.
         </p>
+        </div>
+
+        <div class="hero-image-wrap" style="display:flex; justify-content:flex-end;">
+          <div class="hero-image" style="width: 320px; aspect-ratio: 1 / 1; border-radius: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); box-shadow: 0 20px 40px rgba(0,0,0,0.25);">
+            <img src="images/profile.jpg" alt="Portrait of Muhammad Bagoes Wicaksono" style="width:100%; height:100%; object-fit: cover;">
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -504,29 +528,6 @@
             <span class="pill">Documentation</span>
           </div>
         </div>
-
-        <div class="about-card" style="margin-top: 24px;">
-          <h3 style="margin-top: 0;">Development Journey</h3>
-          <div style="display: grid; gap: 16px; margin-top: 20px;">
-            <div>
-              <strong>2022 — CapingVenture</strong><br>
-              <span style="color: var(--muted);">3D adventure puzzle game focused on exploration and mystery.</span>
-            </div>
-            <div>
-              <strong>2023 — Hopeful: The Black Vein</strong><br>
-              <span style="color: var(--muted);">Narrative puzzle-platformer with a steampunk-inspired setting.</span>
-            </div>
-            <div>
-              <strong>2025 — Carrot Crusader</strong><br>
-              <span style="color: var(--muted);">Arcade wave-survival shooter with chaotic gameplay and quirky charm.</span>
-            </div>
-            <div>
-              <strong>Present — Dapoer Setan</strong><br>
-              <span style="color: var(--muted);">Cooking arcade project inspired by Overcooked and Indonesian folklore.</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section id="projects">
