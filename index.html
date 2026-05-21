@@ -86,6 +86,25 @@
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-profile {
+      width: 180px;
+      height: 180px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      flex-shrink: 0;
+    }
+
+    .hero-profile img {
+      width: 100%; height: 100%;
+      object-fit: cover;
     }
 
     .hero-card::after {
@@ -293,7 +312,8 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      .hero-card { padding: 28px; }
+      .hero-card { padding: 28px; grid-template-columns: 1fr; }
+      .hero-profile { width: 100px; height: 100px; order: -1; }
       .project-card { grid-template-columns: 1fr; }
       .project-thumb { min-height: 180px; }
       .nav-inner { flex-direction: column; align-items: start; }
@@ -316,15 +336,20 @@
   <header class="hero">
     <div class="container">
       <div class="hero-card">
-        <div class="eyebrow">Indie Game Developer</div>
-        <h1>Muhammad Bagoes Wicaksono</h1>
-        <p class="hero-subtitle">
-          I design and build games that are fast, fun, and memorable. Working with Unity and Godot,
-          focusing on game design, level design, and player experience.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        <div class="hero-content">
+          <div class="eyebrow">Indie Game Developer</div>
+          <h1>Muhammad Bagoes Wicaksono</h1>
+          <p class="hero-subtitle">
+            I design and build games that are fast, fun, and memorable. Working with Unity and Godot,
+            focusing on game design, level design, and player experience.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+          </div>
+        </div>
+        <div class="hero-profile">
+          <img src="images/profile.png" alt="Muhammad Bagoes Wicaksono">
         </div>
       </div>
     </div>
