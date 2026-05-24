@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carrot Crusader | Pyoyoww</title>
+  <title>Sorting Colour Blocks | Pyoyoww</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #f5f7fb;
@@ -15,36 +17,52 @@
       --muted: #667085;
       --border: rgba(16,24,40,0.08);
       --primary: #0f172a;
+
       --accent: #7c3aed;
       --accent-2: #ec4899;
       --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+
       --shadow: 0 18px 40px rgba(15,23,42,0.08);
       --max-width: 860px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(37,99,235,0.08), transparent 26%),
-        radial-gradient(circle at top right, rgba(6,182,212,0.08), transparent 22%),
+        radial-gradient(circle at top left, rgba(124,58,237,0.08), transparent 26%),
+        radial-gradient(circle at top right, rgba(236,72,153,0.08), transparent 22%),
         var(--bg);
+
       color: var(--text);
       line-height: 1.65;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
     .container {
       width: min(var(--max-width), calc(100% - 32px));
       margin: 0 auto;
     }
 
-    /* ── NAV ── */
+    /* NAV */
+
     nav {
       position: sticky;
       top: 0;
@@ -62,7 +80,11 @@
       padding: 14px 0;
     }
 
-    .brand { font-weight: 800; letter-spacing: -0.03em; color: var(--primary); }
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--primary);
+    }
 
     .back-link {
       display: inline-flex;
@@ -76,9 +98,13 @@
       transition: background 0.2s, color 0.2s;
     }
 
-    .back-link:hover { background: rgba(37,99,235,0.08); color: var(--accent); }
+    .back-link:hover {
+      background: rgba(124,58,237,0.08);
+      color: var(--accent);
+    }
 
-    /* ── HERO ── */
+    /* HERO */
+
     .project-hero {
       padding: 64px 0 0;
     }
@@ -86,22 +112,31 @@
     .hero-banner {
       width: 100%;
       aspect-ratio: 16 / 7;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
       border-radius: 28px;
       overflow: hidden;
       position: relative;
+      background: linear-gradient(135deg, #1e1b4b, #312e81);
     }
 
     .hero-banner img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      opacity: 0.85;
+      opacity: 0.92;
     }
 
     .hero-banner-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(15,23,42,0.85) 0%, transparent 60%);
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(15,23,42,0.88) 0%,
+          rgba(15,23,42,0.12) 60%,
+          transparent 100%
+        );
+
       display: flex;
       align-items: flex-end;
       padding: 36px;
@@ -111,16 +146,17 @@
       margin: 0 0 8px;
       font-size: clamp(1.8rem, 4vw, 3rem);
       letter-spacing: -0.04em;
-      color: #fff;
+      color: white;
     }
 
     .hero-banner-text .meta {
       font-size: 0.9rem;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.72);
       font-weight: 500;
     }
 
-    /* ── CONTENT ── */
+    /* CONTENT */
+
     .content {
       padding: 48px 0 80px;
       display: flex;
@@ -128,7 +164,8 @@
       gap: 32px;
     }
 
-    /* ── CARD ── */
+    /* CARD */
+
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -158,10 +195,16 @@
       line-height: 1.75;
     }
 
-    .card p:last-child { margin-bottom: 0; }
-    .card p strong { color: var(--text); }
+    .card p:last-child {
+      margin-bottom: 0;
+    }
 
-    /* ── INFO ROW (quick facts) ── */
+    .card p strong {
+      color: var(--text);
+    }
+
+    /* INFO GRID */
+
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -175,7 +218,7 @@
       padding: 14px 16px;
     }
 
-    .info-item .info-label {
+    .info-label {
       font-size: 0.72rem;
       font-weight: 700;
       color: var(--muted);
@@ -184,41 +227,60 @@
       margin-bottom: 4px;
     }
 
-    .info-item .info-value {
+    .info-value {
       font-weight: 600;
       font-size: 0.95rem;
       color: var(--text);
     }
 
-    /* ── SCREENSHOTS ── */
+    /* SCREENSHOTS */
+
     .screenshots-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      gap: 18px;
     }
 
     .screenshot {
-      border-radius: 14px;
+      border-radius: 18px;
       overflow: hidden;
       background: #f1f5f9;
-      aspect-ratio: 16 / 9;
+
+      aspect-ratio: 9 / 19.5;
+
+      max-width: 260px;
+      margin: 0 auto;
     }
 
     .screenshot img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      transition: transform 0.3s;
+      display: block;
     }
 
-    .screenshot:hover img { transform: scale(1.03); }
+    .screenshot:hover img {
+      transform: scale(1.03);
+    }
 
     .screenshot.wide {
       grid-column: 1 / -1;
-      aspect-ratio: 16 / 6;
+
+      aspect-ratio: 9 / 19.5;
+
+      max-width: 340px;
+      width: 100%;
+
+      margin: 0 auto;
     }
 
-    /* ── STRUGGLES / LEARNINGS ── */
-    .list-items { display: flex; flex-direction: column; gap: 14px; }
+    /* LIST */
+
+    .list-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
     .list-item {
       display: flex;
@@ -227,42 +289,47 @@
     }
 
     .list-number {
-    width: 42px;
-    height: 42px;
+      width: 42px;
+      height: 42px;
 
-    border-radius: 12px;
+      border-radius: 12px;
 
-    background: rgba(124,58,237,0.08);
-    border: 1px solid rgba(124,58,237,0.12);
+      background: rgba(124,58,237,0.08);
+      border: 1px solid rgba(124,58,237,0.12);
 
-    color: var(--accent);
+      color: var(--accent);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    font-weight: 700;
-    font-size: 0.95rem;
+      font-weight: 700;
+      font-size: 0.95rem;
 
-    flex-shrink: 0;
-    margin-top: 2px;
+      flex-shrink: 0;
+      margin-top: 2px;
     }
 
     .list-item-body strong {
       display: block;
-      font-size: 0.95rem;
       margin-bottom: 4px;
+      font-size: 0.95rem;
     }
 
     .list-item-body p {
       margin: 0;
       font-size: 0.9rem;
-      color: var(--muted);
       line-height: 1.65;
     }
 
-    /* ── PILL ROW ── */
-    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    /* PILLS */
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
     .pill {
       font-size: 0.8rem;
       padding: 5px 12px;
@@ -272,26 +339,47 @@
       border: 1px solid var(--border);
     }
 
-    /* ── BUTTONS ── */
+    /* BUTTONS */
+
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+
       padding: 12px 22px;
       border-radius: 999px;
+
       font-weight: 600;
       font-size: 0.92rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+
+      transition: transform 0.2s;
       border: 1px solid transparent;
     }
 
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--accent-gradient); color: #fff; box-shadow: 0 10px 24px rgba(37,99,235,0.22); }
-    .btn-outline { background: #fff; color: var(--primary); border-color: rgba(16,24,40,0.12); }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
 
-    .button-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: white;
+      box-shadow: 0 10px 24px rgba(124,58,237,0.22);
+    }
 
-    /* ── FOOTER ── */
+    .btn-outline {
+      background: white;
+      color: var(--primary);
+      border-color: rgba(16,24,40,0.12);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* FOOTER */
+
     footer {
       padding: 28px 0 42px;
       color: var(--muted);
@@ -301,13 +389,28 @@
     }
 
     @media (max-width: 600px) {
-      .screenshots-grid { grid-template-columns: 1fr; }
-      .screenshot.wide { aspect-ratio: 16 / 9; }
-      .hero-banner { aspect-ratio: 16 / 9; }
-      .hero-banner-overlay { padding: 20px; }
+
+      .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+      .screenshot.wide {
+        aspect-ratio: 16 / 9;
+      }
+
+      .hero-banner {
+        aspect-ratio: 16 / 9;
+      }
+
+      .hero-banner-overlay {
+        padding: 20px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -317,218 +420,296 @@
     </div>
   </nav>
 
-  <!-- HERO BANNER — swap src for your actual screenshot or cover art -->
+  <!-- HERO -->
   <div class="project-hero">
     <div class="container">
+
       <div class="hero-banner">
-        <img src="images/carrot_crusader_banner.png" alt="Carrot Crusader gameplay">
+        <img src="images/sorting_colour_blocks_banner.png" alt="Sorting Colour Blocks gameplay">
+
         <div class="hero-banner-overlay">
           <div class="hero-banner-text">
-            <h1>Carrot Crusader</h1>
-            <div class="meta">2025 · Godot · GDScript · 2D Arcade Shooter</div>
+            <h1>Sorting Colour Blocks</h1>
+            <div class="meta">
+              2026 · Unity · C# · Mobile Puzzle Game
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
   <main>
     <div class="container content">
 
-      <!-- QUICK FACTS -->
+      <!-- PROJECT INFO -->
+
       <div class="card">
         <div class="card-label">Project Info</div>
+
         <div class="info-grid">
+
           <div class="info-item">
             <div class="info-label">Engine</div>
-            <div class="info-value">Godot 4</div>
+            <div class="info-value">Unity</div>
           </div>
+
           <div class="info-item">
             <div class="info-label">Language</div>
-            <div class="info-value">GDScript</div>
+            <div class="info-value">C#</div>
           </div>
+
           <div class="info-item">
             <div class="info-label">Genre</div>
-            <div class="info-value">Arcade Shooter</div>
+            <div class="info-value">Puzzle</div>
           </div>
+
           <div class="info-item">
             <div class="info-label">Platform</div>
-            <div class="info-value">Windows (PC)</div>
+            <div class="info-value">Mobile & WebGL</div>
           </div>
+
           <div class="info-item">
             <div class="info-label">Year</div>
-            <div class="info-value">2025</div>
+            <div class="info-value">2026</div>
           </div>
+
           <div class="info-item">
             <div class="info-label">Role</div>
             <div class="info-value">Solo Developer</div>
           </div>
+
         </div>
       </div>
 
-      <!-- ABOUT THE GAME -->
+      <!-- ABOUT -->
+
       <div class="card">
+
         <div class="card-label">About</div>
-        <h2>What is Carrot Crusader?</h2>
+
+        <h2>What is Sorting Colour Blocks?</h2>
+
         <p>
-          Carrot Crusader is a chaotic 2D arcade shooter where you play as a carrot knight — a helmet-wearing,
-          bow-wielding warrior with one goal: survive the rabbit apocalypse. Waves of aggressive bunnies swarm
-          you from all directions and the only way out is to keep shooting.
+          Sorting Colour Blocks is a mobile puzzle game where players move coloured blocks into matching lanes 
+          until every lane is completed.
         </p>
+
         <p>
-          The game is built around a <strong>kill-streak multiplier system</strong> that rewards consistent play.
-          Stay alive, don't get hit, and your score multiplier climbs from ×1 all the way to ×5. Take damage
-          and it resets. Health packs spawn every 30 seconds to give you a fighting chance.
+          I wanted the game to feel simple and relaxing while still making players 
+          think carefully about their moves as the levels become more difficult.
         </p>
+
+        <p>
+          This game is avalailabe to play for free on <strong>itch.io</strong> directly from your browser or download it on your phone.
+        </p>
+
         <!-- <div class="pill-row" style="margin-top: 8px;">
-          <span class="pill">Wave Survival</span>
-          <span class="pill">Score Multiplier</span>
-          <span class="pill">Enemy AI</span>
-          <span class="pill">Health Packs</span>
-          <span class="pill">High Score</span>
+          <span class="pill">Puzzle Solver</span>
+          <span class="pill">BFS Algorithm</span>
+          <span class="pill">Hint System</span>
+          <span class="pill">Mobile Game</span>
+          <span class="pill">Level Design</span>
         </div> -->
+
       </div>
 
       <!-- SCREENSHOTS -->
+
       <div class="card">
+
         <div class="card-label">Screenshots</div>
+
         <h2>Gameplay</h2>
+
         <div class="screenshots-grid">
-          <!-- Replace src values with your actual screenshots -->
+
           <div class="screenshot wide">
-            <img src="images/carrot_crusader_gameplay.png" alt="Carrot Crusader gameplay">
+            <img src="images/scb_gameplay_main.png" alt="Sorting Colour Blocks gameplay">
           </div>
+
           <div class="screenshot">
-            <img src="images/carrot_crusader_ss1.png" alt="Screenshot 1">
+            <img src="images/scb_ss1.png" alt="Sorting Colour Blocks screenshot 1">
           </div>
+
           <div class="screenshot">
-            <img src="images/carrot_crusader_ss2.png" alt="Screenshot 2">
+            <img src="images/scb_ss2.png" alt="Sorting Colour Blocks screenshot 2">
           </div>
+
           <div class="screenshot">
-            <img src="images/carrot_crusader_ss3.png" alt="Screenshot 3">
+            <img src="images/scb_ss3.png" alt="Sorting Colour Blocks screenshot 3">
           </div>
+
           <div class="screenshot">
-            <img src="images/carrot_crusader_ss4.png" alt="Screenshot 4">
+            <img src="images/scb_ss4.png" alt="Sorting Colour Blocks screenshot 4">
           </div>
+
         </div>
+
       </div>
 
       <!-- INSPIRATION -->
+
       <div class="card">
+
         <div class="card-label">Inspiration</div>
+
         <h2>Where It Started</h2>
+
         <p>
-          <!-- Write your own inspiration story here -->
-          Carrot Crusader started as a learning project following a GDQuest tutorial on building a
-          survivor-style game in Godot. After finishing the tutorial I wasn't satisfied with just having
-          a clone, so I started rebuilding it piece by piece with my own twist.
+          This project originally started as a small puzzle game experiment while i was trying to improve my game design and programming skills in Unity.
+          Going home after work ive always seen people on their phones playing simple puzzle games like this and thought it would be fun to try making one myself.
+          Other games like <strong><em>Flow Free</em></strong>, <strong><em>Unblock Me</em></strong>, <strong><em>Ball Sort Puzzle</em></strong> and <strong><em>Water Sort Puzzle</em></strong> were some of the main inspirations for the core mechanics and overall feel i wanted to achieve.
         </p>
-        <p>
-          The chaotic bunny-vs-carrot theme came from wanting something that felt immediately funny and
-          readable. I looked at <strong>Brotato</strong> and <strong>Vampire Survivors</strong> for how
-          they handled enemy swarming and score feedback, and tried to distil that into something smaller
-          and more focused.
-        </p>
+
       </div>
 
-      <!-- STRUGGLES -->
+      <!-- CHALLENGES -->
+
       <div class="card">
+
         <div class="card-label">Development</div>
+
         <h2>Challenges I Faced</h2>
+
         <div class="list-items">
 
           <div class="list-item">
+
             <div class="list-number">01</div>
+
             <div class="list-item-body">
-              <strong>Making enemy spawning feel fair</strong>
+              <strong>Making sure levels were actually solvable</strong>
+
               <p>
-               One of the hardest parts was balancing the enemy spawning system. At first enemies spawned in awkward waves or all at once after delays,
-               which made the pacing feel inconsistent. I had to rework the spawning logic so defeated enemies would 
-               immediately be replaced while still keeping the difficulty progression manageable over time.
+                One of the hardest parts was realizing that some generated layouts looked 
+                correct but were impossible to finish. To solve this, I implemented a BFS-based solver that 
+                validates whether a puzzle can actually be completed before the player sees it.
               </p>
             </div>
+
           </div>
 
           <div class="list-item">
+
             <div class="list-number">02</div>
+
             <div class="list-item-body">
-              <strong>Expanding the game beyond the original prototype</strong>
+              <strong>Building the hint system</strong>
+
               <p>
-                The project started from a simple learning prototype, but once I began adding tutorials, 
-                score multipliers, save systems, enemy variants, and UI polish, the codebase became much more complex. 
-                Changing systems without breaking existing gameplay became a major challenge throughout development.
+                I didn’t want the hint feature to completely solve the puzzle for the player. 
+                The system needed to give enough guidance to help the players when they got stuck 
+                while still letting the player figure things out themselves.
               </p>
             </div>
+
           </div>
 
           <div class="list-item">
+
             <div class="list-number">03</div>
+
             <div class="list-item-body">
-              <strong>Designing readable visuals while keeping the style simple</strong>
+              <strong>Making the game readable on mobile</strong>
+
               <p>
-                Since the game uses soft pastel colors and simple character designs, it was surprisingly difficult to 
-                make enemies stand out clearly from the environment without making them visually overwhelming. 
-                I spent a lot of time experimenting with color palettes and enemy variants.
+                Since the game was designed for phones i spent a lot of time adjusting spacing, block sizes, 
+                UI layout and touch input so everything stayed readable and comfortable on smaller screens.
               </p>
             </div>
+
           </div>
 
         </div>
+
       </div>
 
       <!-- LEARNINGS -->
+
       <div class="card">
+
         <div class="card-label">Reflection</div>
+
         <h2>What I Learned</h2>
+
         <div class="list-items">
 
           <div class="list-item">
+
             <div class="list-number">01</div>
+
             <div class="list-item-body">
-              <strong>Small polish details can completely change the feel of a game</strong>
+
+              <strong>Algorithms can directly improve gameplay</strong>
+
               <p>
-                Things like hit flashes, score animations, screen feedback, cursor behavior, sound effects and UI transitions 
-                added far more to the experience than I originally expected. 
-                Even simple mechanics felt more satisfying once they had proper feedback and polish.
+                Before this project, I mostly associated algorithms with technical systems. 
+                Working on the BFS solver showed me how important 
+                they can be for actual game design and player experience.
               </p>
+
             </div>
+
           </div>
 
           <div class="list-item">
+
             <div class="list-number">02</div>
+
             <div class="list-item-body">
-              <strong>Going beyond the tutorial</strong>
+
+              <strong>Small polish makes puzzle games feel satisfying</strong>
+
               <p>
-                The most valuable part wasn't the tutorial itself but everything I had to figure out
-                after it. Custom enemy behaviour, score systems, UI flow, and save data none of
-                that was in the tutorial.
+                Even though the mechanics are simple, small things like movement, animations, 
+                highlights, sound feedback and responsiveness made a huge 
+                difference in how satisfying the game felt to play.
               </p>
+
             </div>
+
           </div>
 
           <div class="list-item">
+
             <div class="list-number">03</div>
+
             <div class="list-item-body">
-              <strong>Godot 4 workflow and GDScript</strong>
+
+              <strong>Difficulty progression is really important</strong>
+
               <p>
-                This was my first serious Godot 4 project. I learned how the scene system works,
-                how signals connect components and how GDScript handles things differently from C#.
+                I learned that puzzle games can become frustrating very quickly if the difficulty jumps too hard. 
+                Organizing the level flow and pacing ended up being just as 
+                important as designing the puzzles themselves.
               </p>
+
             </div>
+
           </div>
 
         </div>
+
       </div>
 
       <!-- LINKS -->
+
       <div class="card">
+
         <div class="card-label">Links</div>
+
         <h2>Play & Explore</h2>
+
         <div class="button-row">
-          <a class="btn btn-primary" href="https://pyoyoww.itch.io/carrot-crusader" target="_blank">Play on Itch.io</a>
-          <a class="btn btn-outline" href="https://github.com/mbagoesw/carrotcrusader" target="_blank">View on GitHub</a>
-          <a class="btn btn-outline" href="docs/carrot_crusader_gdd.pdf" target="_blank">Read the GDD</a>
+
+          <a class="btn btn-primary" href="https://pyoyoww.itch.io/sorting-colour-blocks" target="_blank">Play on Itch.io</a>
+          <a class="btn btn-outline" href="https://github.com/mbagoesw/SortingColourBlocks" target="_blank">View on GitHub</a>
+          <a class="btn btn-outline" href="docs/sorting_colour_blocks_gdd.pdf" target="_blank">Read the GDD</a>
+
         </div>
+
       </div>
 
     </div>
@@ -536,23 +717,44 @@
 
   <footer>
     <div class="container">
-      &copy; 2025 Muhammad Bagoes Wicaksono — <a href="index.html" style="color: var(--accent);">Back to Portfolio</a>
+      &copy; 2025 Muhammad Bagoes Wicaksono —
+      <a href="index.html" style="color: var(--accent);">
+        Back to Portfolio
+      </a>
     </div>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
   <script>
+
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from(".hero-banner", { duration: 0.9, y: 24, opacity: 0, ease: "power2.out" });
+    gsap.from(".hero-banner", {
+      duration: 0.9,
+      y: 24,
+      opacity: 0,
+      ease: "power2.out"
+    });
 
     gsap.utils.toArray(".card").forEach((card, i) => {
+
       gsap.from(card, {
-        scrollTrigger: { trigger: card, start: "top 88%" },
-        y: 24, opacity: 0, duration: 0.55, ease: "power2.out", delay: i * 0.03
+        scrollTrigger: {
+          trigger: card,
+          start: "top 88%"
+        },
+
+        y: 24,
+        opacity: 0,
+        duration: 0.55,
+        ease: "power2.out",
+        delay: i * 0.03
       });
+
     });
+
   </script>
 
 </body>

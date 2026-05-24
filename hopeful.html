@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carrot Crusader | Pyoyoww</title>
+  <title>Hopeful: The Black Vein | Pyoyoww</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -86,7 +86,7 @@
     .hero-banner {
       width: 100%;
       aspect-ratio: 16 / 7;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
+      background: linear-gradient(135deg, #1a0a00, #3d1a00);
       border-radius: 28px;
       overflow: hidden;
       position: relative;
@@ -227,25 +227,19 @@
     }
 
     .list-number {
-    width: 42px;
-    height: 42px;
-
-    border-radius: 12px;
-
-    background: rgba(124,58,237,0.08);
-    border: 1px solid rgba(124,58,237,0.12);
-
-    color: var(--accent);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-weight: 700;
-    font-size: 0.95rem;
-
-    flex-shrink: 0;
-    margin-top: 2px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(124,58,237,0.08);
+      border: 1px solid rgba(124,58,237,0.12);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      margin-top: 2px;
     }
 
     .list-item-body strong {
@@ -291,6 +285,129 @@
 
     .button-row { display: flex; flex-wrap: wrap; gap: 12px; }
 
+    /* ── CHARACTER CARDS ── */
+    .character-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 4px;
+    }
+
+    .character-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .character-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .character-role {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .character-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    /* ── OBSTACLE TABLE ── */
+    .obstacle-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .obstacle-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .obstacle-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(124,58,237,0.08);
+      border: 1px solid rgba(124,58,237,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .obstacle-body strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .obstacle-body p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── CONTROLS TABLE ── */
+    .controls-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4px;
+    }
+
+    .controls-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .controls-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .controls-table td {
+      padding: 10px 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .controls-table td:first-child {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .key-badge {
+      display: inline-block;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text);
+      font-family: monospace;
+      box-shadow: 0 2px 0 #cbd5e1;
+    }
+
     /* ── FOOTER ── */
     footer {
       padding: 28px 0 42px;
@@ -305,6 +422,7 @@
       .screenshot.wide { aspect-ratio: 16 / 9; }
       .hero-banner { aspect-ratio: 16 / 9; }
       .hero-banner-overlay { padding: 20px; }
+      .character-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -317,15 +435,15 @@
     </div>
   </nav>
 
-  <!-- HERO BANNER — swap src for your actual screenshot or cover art -->
+  <!-- HERO BANNER -->
   <div class="project-hero">
     <div class="container">
       <div class="hero-banner">
-        <img src="images/carrot_crusader_banner.png" alt="Carrot Crusader gameplay">
+        <img src="images/hopeful_banner.png" alt="Hopeful: The Black Vein banner">
         <div class="hero-banner-overlay">
           <div class="hero-banner-text">
-            <h1>Carrot Crusader</h1>
-            <div class="meta">2025 · Godot · GDScript · 2D Arcade Shooter</div>
+            <h1>Hopeful: The Black Vein</h1>
+            <div class="meta">2023 · Unity · C# · 2D Platformer Puzzle Action</div>
           </div>
         </div>
       </div>
@@ -341,15 +459,15 @@
         <div class="info-grid">
           <div class="info-item">
             <div class="info-label">Engine</div>
-            <div class="info-value">Godot 4</div>
+            <div class="info-value">Unity</div>
           </div>
           <div class="info-item">
             <div class="info-label">Language</div>
-            <div class="info-value">GDScript</div>
+            <div class="info-value">C#</div>
           </div>
           <div class="info-item">
             <div class="info-label">Genre</div>
-            <div class="info-value">Arcade Shooter</div>
+            <div class="info-value">Platformer / Puzzle</div>
           </div>
           <div class="info-item">
             <div class="info-label">Platform</div>
@@ -357,11 +475,15 @@
           </div>
           <div class="info-item">
             <div class="info-label">Year</div>
-            <div class="info-value">2025</div>
+            <div class="info-value">2023</div>
           </div>
           <div class="info-item">
             <div class="info-label">Role</div>
-            <div class="info-value">Solo Developer</div>
+            <div class="info-value">Game Designer</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Team</div>
+            <div class="info-value">Silent Games</div>
           </div>
         </div>
       </div>
@@ -369,24 +491,13 @@
       <!-- ABOUT THE GAME -->
       <div class="card">
         <div class="card-label">About</div>
-        <h2>What is Carrot Crusader?</h2>
+        <h2>What is Hopeful: The Black Vein?</h2>
         <p>
-          Carrot Crusader is a chaotic 2D arcade shooter where you play as a carrot knight — a helmet-wearing,
-          bow-wielding warrior with one goal: survive the rabbit apocalypse. Waves of aggressive bunnies swarm
-          you from all directions and the only way out is to keep shooting.
+          Hopeful: The Black Vein is a <strong>2D steampunk platformer</strong> set in 1350 London, where a devastating disease called the Black Vein has swept across Europe, leaving victims helpless and marking their bodies with an eerie black color.
         </p>
         <p>
-          The game is built around a <strong>kill-streak multiplier system</strong> that rewards consistent play.
-          Stay alive, don't get hit, and your score multiplier climbs from ×1 all the way to ×5. Take damage
-          and it resets. Health packs spawn every 30 seconds to give you a fighting chance.
+          You play as <strong>Frank Wendell</strong> a skilled thief on a desperate mission infiltrating a long abandoned secret lab to steal the only known cure for the disease and save his bedridden sister Ariel. To get there he must navigate through deadly traps, laser grids, automated turrets and other puzzles.
         </p>
-        <!-- <div class="pill-row" style="margin-top: 8px;">
-          <span class="pill">Wave Survival</span>
-          <span class="pill">Score Multiplier</span>
-          <span class="pill">Enemy AI</span>
-          <span class="pill">Health Packs</span>
-          <span class="pill">High Score</span>
-        </div> -->
       </div>
 
       <!-- SCREENSHOTS -->
@@ -394,57 +505,58 @@
         <div class="card-label">Screenshots</div>
         <h2>Gameplay</h2>
         <div class="screenshots-grid">
-          <!-- Replace src values with your actual screenshots -->
-          <div class="screenshot wide">
-            <img src="images/carrot_crusader_gameplay.png" alt="Carrot Crusader gameplay">
+          <div class="screenshot wide" style="background: #000;">
+            <iframe
+                src="https://www.youtube.com/embed/watch?v=FzGBnNhieBw"
+                title="Hopeful: The Black Vein gameplay"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="width: 100%; height: 100%; border-radius: 14px;">
+            </iframe>
+            </div>
+          <div class="screenshot">
+            <img src="images/hopeful_ss1.png" alt="Screenshot 1">
           </div>
           <div class="screenshot">
-            <img src="images/carrot_crusader_ss1.png" alt="Screenshot 1">
+            <img src="images/hopeful_ss2.png" alt="Screenshot 2">
           </div>
           <div class="screenshot">
-            <img src="images/carrot_crusader_ss2.png" alt="Screenshot 2">
+            <img src="images/hopeful_ss3.png" alt="Screenshot 3">
           </div>
           <div class="screenshot">
-            <img src="images/carrot_crusader_ss3.png" alt="Screenshot 3">
-          </div>
-          <div class="screenshot">
-            <img src="images/carrot_crusader_ss4.png" alt="Screenshot 4">
+            <img src="images/hopeful_ss4.png" alt="Screenshot 4">
           </div>
         </div>
       </div>
 
       <!-- INSPIRATION -->
+
       <div class="card">
+
         <div class="card-label">Inspiration</div>
+
         <h2>Where It Started</h2>
+
         <p>
-          <!-- Write your own inspiration story here -->
-          Carrot Crusader started as a learning project following a GDQuest tutorial on building a
-          survivor-style game in Godot. After finishing the tutorial I wasn't satisfied with just having
-          a clone, so I started rebuilding it piece by piece with my own twist.
+          Hopeful: The Black Vein was a final project for a program called Studi Independen where participants studied independently under the guidance of certified industry mentors.
+        One day during the program someone pitched the idea of a steampunk puzzle-platformer and later on i joined his team to help work on it and eventually succeed in finishing the game.
         </p>
-        <p>
-          The chaotic bunny-vs-carrot theme came from wanting something that felt immediately funny and
-          readable. I looked at <strong>Brotato</strong> and <strong>Vampire Survivors</strong> for how
-          they handled enemy swarming and score feedback, and tried to distil that into something smaller
-          and more focused.
-        </p>
+
       </div>
 
-      <!-- STRUGGLES -->
+      <!-- CHALLENGES -->
       <div class="card">
         <div class="card-label">Development</div>
-        <h2>Challenges I Faced</h2>
+        <h2>Challenges We Faced</h2>
         <div class="list-items">
 
           <div class="list-item">
             <div class="list-number">01</div>
             <div class="list-item-body">
-              <strong>Making enemy spawning feel fair</strong>
+              <strong>Designing puzzles that feel fair</strong>
               <p>
-               One of the hardest parts was balancing the enemy spawning system. At first enemies spawned in awkward waves or all at once after delays,
-               which made the pacing feel inconsistent. I had to rework the spawning logic so defeated enemies would 
-               immediately be replaced while still keeping the difficulty progression manageable over time.
+                Balancing instant-death obstacles like spikes and lasers with puzzle-solving required careful iteration. Too punishing and players quit; too easy and the tension disappears. Getting that balance right across four levels took a lot of playtesting.
               </p>
             </div>
           </div>
@@ -452,11 +564,9 @@
           <div class="list-item">
             <div class="list-number">02</div>
             <div class="list-item-body">
-              <strong>Expanding the game beyond the original prototype</strong>
+              <strong>Coordinating a six-person team across roles</strong>
               <p>
-                The project started from a simple learning prototype, but once I began adding tutorials, 
-                score multipliers, save systems, enemy variants, and UI polish, the codebase became much more complex. 
-                Changing systems without breaking existing gameplay became a major challenge throughout development.
+                With two programmers, two artists, one designer, and one producer, keeping everyone aligned on scope, art style, and gameplay feel was a constant challenge. Scope creep and integration issues had to be managed carefully throughout production.
               </p>
             </div>
           </div>
@@ -464,11 +574,9 @@
           <div class="list-item">
             <div class="list-number">03</div>
             <div class="list-item-body">
-              <strong>Designing readable visuals while keeping the style simple</strong>
+              <strong>Building interactive puzzle mechanics from scratch</strong>
               <p>
-                Since the game uses soft pastel colors and simple character designs, it was surprisingly difficult to 
-                make enemies stand out clearly from the environment without making them visually overwhelming. 
-                I spent a lot of time experimenting with color palettes and enemy variants.
+                Systems like button-activated doors, pushable blocks that interact with lasers, and moving platforms all had to be designed and implemented to work together reliably without breaking in unexpected edge cases.
               </p>
             </div>
           </div>
@@ -479,17 +587,15 @@
       <!-- LEARNINGS -->
       <div class="card">
         <div class="card-label">Reflection</div>
-        <h2>What I Learned</h2>
+        <h2>What We Learned</h2>
         <div class="list-items">
 
           <div class="list-item">
             <div class="list-number">01</div>
             <div class="list-item-body">
-              <strong>Small polish details can completely change the feel of a game</strong>
+              <strong>Story and atmosphere elevate the whole experience</strong>
               <p>
-                Things like hit flashes, score animations, screen feedback, cursor behavior, sound effects and UI transitions 
-                added far more to the experience than I originally expected. 
-                Even simple mechanics felt more satisfying once they had proper feedback and polish.
+                Having a clear narrative — Frank's desperation to save his sister — gave every design decision more purpose. It made level theming, UI tone, and even the pixel art style feel intentional rather than arbitrary.
               </p>
             </div>
           </div>
@@ -497,11 +603,9 @@
           <div class="list-item">
             <div class="list-number">02</div>
             <div class="list-item-body">
-              <strong>Going beyond the tutorial</strong>
+              <strong>Puzzle design is its own discipline</strong>
               <p>
-                The most valuable part wasn't the tutorial itself but everything I had to figure out
-                after it. Custom enemy behaviour, score systems, UI flow, and save data none of
-                that was in the tutorial.
+                Designing puzzles that teach themselves through environment and layout — without explicit instructions — is much harder than it looks. The button-and-box mechanic especially required many iterations before it felt intuitive.
               </p>
             </div>
           </div>
@@ -509,10 +613,9 @@
           <div class="list-item">
             <div class="list-number">03</div>
             <div class="list-item-body">
-              <strong>Godot 4 workflow and GDScript</strong>
+              <strong>A GDD keeps a team honest</strong>
               <p>
-                This was my first serious Godot 4 project. I learned how the scene system works,
-                how signals connect components and how GDScript handles things differently from C#.
+                Writing a proper Game Design Document before building forced the team to make decisions early — on story, mechanics, and scope — which saved significant time later and gave everyone a shared reference to work from.
               </p>
             </div>
           </div>
@@ -525,9 +628,8 @@
         <div class="card-label">Links</div>
         <h2>Play & Explore</h2>
         <div class="button-row">
-          <a class="btn btn-primary" href="https://pyoyoww.itch.io/carrot-crusader" target="_blank">Play on Itch.io</a>
-          <a class="btn btn-outline" href="https://github.com/mbagoesw/carrotcrusader" target="_blank">View on GitHub</a>
-          <a class="btn btn-outline" href="docs/carrot_crusader_gdd.pdf" target="_blank">Read the GDD</a>
+          <a class="btn btn-primary" href="https://ms013.itch.io/hopefull" target="_blank">Play on Itch.io</a>
+          <a class="btn btn-outline" href="docs/hopeful_gdd.pdf" target="_blank">Read the GDD</a>
         </div>
       </div>
 
