@@ -274,6 +274,41 @@
       margin: 0 auto;
     }
 
+     /* ── INSPIRATION GAMES ── */
+    .inspiration-games {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .inspiration-game {
+      overflow: hidden;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+    }
+
+    .inspiration-game img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .inspiration-game span {
+      display: block;
+      padding: 12px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+    .inspiration-games {
+      grid-template-columns: 1fr;
+    }
+  }
+
     /* LIST */
 
     .list-items {
@@ -549,21 +584,40 @@
 
       </div>
 
-      <!-- INSPIRATION -->
+       <!-- INSPIRATION -->
+    <div class="card">
 
-      <div class="card">
+      <div class="card-label">Inspiration</div>
 
-        <div class="card-label">Inspiration</div>
+      <h2>Where It Started</h2>
 
-        <h2>Where It Started</h2>
-
-        <p>
+      <p>
           This project originally started as a small puzzle game experiment while i was trying to improve my game design and programming skills in Unity.
           Going home after work ive always seen people on their phones playing simple puzzle games like this and thought it would be fun to try making one myself.
-          Other games like <strong><em>Flow Free</em></strong>, <strong><em>Unblock Me</em></strong>, <strong><em>Ball Sort Puzzle</em></strong> and <strong><em>Water Sort Puzzle</em></strong> were some of the main inspirations for the core mechanics and overall feel i wanted to achieve.
-        </p>
+          Other games like <strong><em>Block Blast!</em></strong>, <strong><em>Homescapes</em></strong>, <strong><em>Block Sort</em></strong> and <strong><em>Water Sort Puzzle</em></strong> were some of my main inspirations for 
+          the core mechanics and overall feel i wanted to achieve.
+      </p>
+
+      <div class="inspiration-games">
+
+        <div class="inspiration-game">
+          <img src="images/block_blast.png" alt="Block Blast!">
+          <span>Block Blast!</span>
+        </div>
+
+        <div class="inspiration-game">
+          <img src="images/block_sort.png" alt="Block Sort">
+          <span>Block Sort</span>
+        </div>
+
+        <div class="inspiration-game">
+          <img src="images/homescapes.png" alt="Homescapes">
+          <span>Homescapes</span>
+        </div>
 
       </div>
+
+    </div>
 
       <!-- CHALLENGES -->
 

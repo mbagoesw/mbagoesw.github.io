@@ -217,6 +217,41 @@
       aspect-ratio: 16 / 6;
     }
 
+  /* ── INSPIRATION GAMES ── */
+    .inspiration-games {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .inspiration-game {
+      overflow: hidden;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+    }
+
+    .inspiration-game img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .inspiration-game span {
+      display: block;
+      padding: 12px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+    .inspiration-games {
+      grid-template-columns: 1fr;
+    }
+  }
+
     /* ── STRUGGLES / LEARNINGS ── */
     .list-items { display: flex; flex-direction: column; gap: 14px; }
 
@@ -414,22 +449,45 @@
       </div>
 
       <!-- INSPIRATION -->
-      <div class="card">
-        <div class="card-label">Inspiration</div>
-        <h2>Where It Started</h2>
-        <p>
-          <!-- Write your own inspiration story here -->
-          Carrot Crusader started as a learning project following a GDQuest tutorial on building a
-          survivor-style game in Godot. After finishing the tutorial I wasn't satisfied with just having
-          a clone, so I started rebuilding it piece by piece with my own twist.
-        </p>
-        <p>
-          The chaotic bunny-vs-carrot theme came from wanting something that felt immediately funny and
-          readable. I looked at <strong>Brotato</strong> and <strong>Vampire Survivors</strong> for how
-          they handled enemy swarming and score feedback, and tried to distil that into something smaller
-          and more focused.
-        </p>
+    <div class="card">
+
+      <div class="card-label">Inspiration</div>
+
+      <h2>Where It Started</h2>
+
+      <p>
+        Carrot Crusader started as a learning project following a GDQuest tutorial on building a
+        survivor-style game in Godot. After finishing the tutorial i wasn't satisfied with just having
+        a clone, so i started rebuilding it with my own twist.
+      </p>
+
+      <p>
+        The chaotic bunny-vs-carrot theme came from wanting something that felt immediately funny and
+        readable. I looked at <strong>Brotato</strong>, <strong>Vampire Survivors</strong> and
+        <strong>20 Minutes Till Dawn</strong> for how they handled enemy swarming, progression
+        and score feedback, then tried to distil those ideas into something smaller and more focused.
+      </p>
+
+      <div class="inspiration-games">
+
+        <div class="inspiration-game">
+          <img src="images/brotato.png" alt="Brotato">
+          <span>Brotato</span>
+        </div>
+
+        <div class="inspiration-game">
+          <img src="images/vampire_survivors.png" alt="Vampire Survivors">
+          <span>Vampire Survivors</span>
+        </div>
+
+        <div class="inspiration-game">
+          <img src="images/20_minutes.png" alt="20 Minutes Till Dawn">
+          <span>20 Minutes Till Dawn</span>
+        </div>
+
       </div>
+
+    </div>
 
       <!-- STRUGGLES -->
       <div class="card">
